@@ -1,0 +1,53 @@
+:root {
+  --background-color: #efefef;
+  --text-color: #030303;
+  --background-button: #5f9ea0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+
+  height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+button {
+  margin: 1.5rem 0;
+  padding: 0.6rem .8rem;
+  font-size: 1rem;
+  font-weight: 600;
+
+  background-color: var(--background-button);
+  border: none;
+  border-radius: .5rem;
+  cursor: pointer;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  flex-direction: column;
+}
+
+.container > h1 {
+  text-transform: uppercase;
+}
+
+.toggle input, label {
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
