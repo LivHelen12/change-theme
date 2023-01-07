@@ -1,6 +1,8 @@
 const inputContainer = document.querySelector("input");
 const rootElement = document.documentElement;
 
+window.onload = getThemeFromLocalStorage;
+
 const lightTheme = {
   "--background-color": "#efefef",
   "--text-color": "#030303",
@@ -24,4 +26,27 @@ function changeTheme(theme) {
     setStyleProp(property, value);
   }
 
+  saveThemeToLocalStorage(theme);
+}
+
+function setStyleProp(property, value) {
+  rootElement.style.setProperty(property, value);
+}
+
+function saveThemeToLocalStorage(theme) {
+  localStorage.setItem("theme", JSON.stringify(theme));
+}
+
+function getThemeFromLocalStorage() {
+ const theme = JSON.parse(localStorage.getItem("theme"));
+ 
+ if(isThemeEqual(theme, darkTheme)) inputContainer.checked = true;
+ changeTheme(theme);
+}
+
+function isThemeEqual(firstTheme, secondTheme) {
+  for(let prop in firstTheme) {
+    if(firstTheme[prop] !== secondTheme[prop]) return false;
+  }
+  return true;
 }
